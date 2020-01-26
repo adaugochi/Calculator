@@ -5,6 +5,10 @@
 ## Build Setup
 
 ``` bash
+# clone project
+git clone https://github.com/adaugochi/Calculator.git
+cd vue-calculator
+
 # install dependencies
 npm install
 
