@@ -63,11 +63,12 @@
                 if (this.currentValue === '') {
                     this.currentValue = this.result
                 }
-                this.result = parseFloat(this.currentValue) / 100;
+                this.result = this.currentValue / 100;
                 this.currentValue = ''
             },
             dot() {
-                if (this.currentValue.indexOf('.') === -1) {
+                let prev = this.currentValue.split(/[+*\/-]/g);
+                if (prev[prev.length - 1].indexOf('.') === -1) {
                     this.append('.')
                 }
             },
@@ -81,7 +82,7 @@
                 this.currentValue = '';
                 this.result = 0;
             },
-            setPrevious(opr) {
+            setOperator(opr) {
                 let sign = this.currentValue.slice(-1);
                 let arrSign = ['+', '-', '*', '/'];
                 if (this.currentValue === '') {
@@ -96,16 +97,16 @@
             getOperator(opr) {
                 switch (opr) {
                     case "+":
-                        this.setPrevious(opr);
+                        this.setOperator(opr);
                         break;
                     case "-":
-                        this.setPrevious(opr);
+                        this.setOperator(opr);
                         break;
                     case "x":
-                        this.setPrevious('*');
+                        this.setOperator('*');
                         break;
                     case "/":
-                        this.setPrevious(opr);
+                        this.setOperator(opr);
                         break;
                     default:
                         console.log("default");
@@ -113,7 +114,7 @@
             },
             getAnswer(e) {
                 if (e.type === 'click' || e.keyCode === 13) {
-                    this.result = parseFloat(eval(this.currentValue));
+                    this.result = eval(this.currentValue);
                     this.currentValue = '';
                 }
             }
