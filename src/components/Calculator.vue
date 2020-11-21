@@ -1,5 +1,5 @@
 <template>
-    <div class="row">
+    <div>
         <div class="col-md-4 mx-auto">
             <div class="container">
                 <div class="content-wrapper">
@@ -126,6 +126,7 @@
 <style scoped>
     .content-wrapper {
         border: 1px solid #bbbbbb;
+        background: #2c3e50;
         padding: 5px;
     }
     .content-output__wrapper {
@@ -134,6 +135,9 @@
         margin: 5px;
         border-radius: 4px;
         box-shadow: 0 1px 3px rgba(0, 0, 0, 0.25);
+    }
+    .content-output__value {
+        color: #f8f9fa;
     }
     .btn {
         outline: none;

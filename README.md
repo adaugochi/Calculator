@@ -8,7 +8,7 @@
 # clone project
 git clone https://github.com/adaugochi/Calculator.git
 cd vue-calculator
-
+__
 # install dependencies
 npm install
 
