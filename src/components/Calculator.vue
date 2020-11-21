@@ -5,7 +5,7 @@
                 <div class="content-wrapper">
                     <div class="content-output__wrapper">
                         <div class="content-output__value text-left">{{ currentValue }}</div>
-                        <div class="content-output__answer text-right text-success">{{ result}}</div>
+                        <div class="content-output__answer text-right text-success">{{ result }}</div>
                     </div>
                     <div>
                         <div class="d-flex">
@@ -114,8 +114,13 @@
             },
             getAnswer(e) {
                 if (e.type === 'click' || e.keyCode === 13) {
-                    this.result = eval(this.currentValue);
-                    this.currentValue = '';
+                    if (this.currentValue !== '') {
+                        localStorage.setItem('result', eval(this.currentValue));
+                        this.result = eval(this.currentValue);
+                        this.currentValue = '';
+                    } else {
+                        this.result = localStorage.getItem('result');
+                    }
                 }
             }
         },
@@ -138,6 +143,9 @@
     }
     .content-output__value {
         color: #f8f9fa;
+    }
+    .content-output__answer, .content-output__value {
+        word-wrap: break-word;
     }
     .btn {
         outline: none;
