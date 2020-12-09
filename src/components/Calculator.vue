@@ -135,7 +135,7 @@
         padding: 5px;
     }
     .content-output__wrapper {
-        padding: 30px 10px;
+        padding: 20px 10px;
         font-size: 40px;
         margin: 5px;
         border-radius: 4px;
@@ -143,6 +143,8 @@
     }
     .content-output__value {
         color: #f8f9fa;
+        font-size: 20px;
+        height: 30px;
     }
     .content-output__answer, .content-output__value {
         word-wrap: break-word;
